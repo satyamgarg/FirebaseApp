@@ -1,5 +1,6 @@
 package com.app.firebasesampleapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -12,13 +13,13 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private var auth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance()
@@ -52,10 +53,8 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = View.VISIBLE;
 
             auth!!.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this@MainActivity,
+                .addOnCompleteListener(this@LoginActivity,
                     OnCompleteListener { task ->
-                        val string: String = getString(R.string.btn_back)
-
                         progressBar.visibility = View.GONE
                         if (!task.isSuccessful) {
                             if (password.length < 6) {
@@ -73,6 +72,7 @@ class MainActivity : AppCompatActivity() {
                                 "Authentication successful.",
                                 Toast.LENGTH_LONG
                             ).show()
+                            startActivity(Intent(applicationContext, HomeActivity::class.java))
                         }
                     })
         }

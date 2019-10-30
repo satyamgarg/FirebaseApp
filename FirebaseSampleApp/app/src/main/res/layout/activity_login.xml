@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -32,6 +32,7 @@
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:singleLine="true"
+            android:text="@string/email_id"
             android:textColor="@android:color/white">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"
             android:hint="@string/hint_password"
+            android:text="@string/password"
             android:imeOptions="actionUnspecified"
             android:inputType="textPassword"
             android:maxLines="1"
@@ -58,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:background="@null"
-            android:text="@string/btn_link_to_login"
+            android:text="@string/btn_login"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="15dp" />
